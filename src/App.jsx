@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 
-import PrivateRoutes from './utils/privateRoutes';
+import PrivateRoutes from './utils/PrivateRoutes'; 
 import { UserProvider } from './utils/useUserContext';
 
 function App() {
