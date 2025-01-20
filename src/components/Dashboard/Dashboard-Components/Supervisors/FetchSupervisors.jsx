@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './FetchSupervisors.css'; 
+import './FetchSuperVisors.css'
 import { baseUrl } from '../../../../utils/baseUrl';
 import { Pie } from 'react-chartjs-2';
 import {
