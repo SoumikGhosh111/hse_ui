@@ -1,0 +1,38 @@
+.inspection-forms-wrapper{ 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.inspection-form{ 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* gap: 0.5rem; */
+}
+
+
+.inspection-details{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+.inspection-form-pictures{ 
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    display: flex;
+    gap: 0.3rem;
+}
+.inspection-pic{ 
+    width: 100px; 
+    height: 100px;
+}

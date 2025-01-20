@@ -1,0 +1,64 @@
+.create-account-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .create-account-title {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .create-account-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .create-account-field {
+    margin-bottom: 15px;
+  }
+  
+  .create-account-label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  
+  .create-account-input,
+  .create-account-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+  }
+  
+  .create-account-input:focus,
+  .create-account-select:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  .create-account-submit {
+    padding: 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .create-account-submit:hover {
+    background-color: #45a049;
+  }
+  

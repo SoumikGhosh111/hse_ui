@@ -1,0 +1,130 @@
+.sites-and-products-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  /* .app-header {
+    text-align: center;
+    color: #333;
+  } */
+  
+  .sites-section-header {
+    margin-top: 20px;
+    color: #555;
+  }
+  
+  .site-list,
+  .product-list,
+  .item-list,
+  .parts-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .site-item,
+  .product-item,
+  .item,
+  .part {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form {
+    margin-top: 20px;
+  }
+  
+  .form input {
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .form button {
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form button:hover {
+    background-color: #218838;
+  }
+
+
+  .backdrop-content-product-list{ 
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    color: black;
+    min-width: 700px;
+    height: fit-content; 
+    max-height: 700px;
+    text-align: center;
+    overflow-y: scroll;
+  }
+
+
+
+  /* Add Item Form Css  */
+  .add-item-form {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-message {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #008000;
+  }
+  
+  .form-message.error {
+    color: #ff0000;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .form-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-button:hover {
+    background-color: #0056b3;
+  }
+  
+  

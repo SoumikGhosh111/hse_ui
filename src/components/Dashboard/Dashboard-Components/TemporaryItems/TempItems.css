@@ -1,0 +1,31 @@
+.temp-items-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .temp-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .temp-items-table th,
+  .temp-items-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .temp-items-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .temp-items-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .temp-items-table tr:hover {
+    background-color: #f1f1f1;
+  }
+  

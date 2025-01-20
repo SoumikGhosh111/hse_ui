@@ -1,0 +1,186 @@
+#sidebar {
+    grid-area: sidebar;
+    height: 100%; 
+    background-color: #231812;
+    overflow-y: auto;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    position: relative;
+  }
+  
+  .sidebar-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px 0px 30px;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar-title > span {
+    display: none;
+  }
+  
+  .sidebar-brand {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(236, 236, 236)
+  }
+  
+  .sidebar-list {
+    padding: 0;
+    list-style-type: none;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  
+  .sidebar-list-item {
+    padding: 20px 20px 20px 20px;
+    font-size: 18px;
+    /* display: flex;
+    align-items: center;
+    justify-content: flex-start; */
+    margin: 0.5rem 0rem;
+  }
+  
+  .sidebar-list-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+  }
+  .active-sidebar{ 
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .sidebar-list-item > a {
+    text-decoration: none;
+    color: #9e9ea4;
+  }
+  
+  .sidebar-responsive {
+    display: inline !important;
+    position: absolute;
+    /*
+      we want the z-index of the sidebar higher so that
+      the charts are not showing over the sidebar 
+      on small screens
+    */
+    z-index: 12 !important;
+  }
+
+
+
+  .back-to-home-side-bar{ 
+    position: absolute;
+    bottom: 5%;
+    left: 48%;
+    transform: translate(-50%);
+    border: none;
+    padding: 1rem 1rem;
+    /* box-sizing: border-box; */
+    font-size: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+
+
+
+  .store-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    flex-direction: column;
+    position: absolute;
+    bottom: 15%;
+    left: 48%;
+    transform: translate(-50%);
+    color: white;
+  }
+  
+  .store-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-bottom: 10px; 
+  }
+  
+  .status-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .status-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .status-button.active {
+    background-color: #171717;
+    color: white;
+  }
+  
+  .store-status {
+    font-size: 24px;
+    margin-left: 20px;
+  }
+
+
+
+  .toggle-switch {
+    display: inline-block;
+}
+
+.toggle-button {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    border-radius: 13px;
+    background-color: #ccc;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 2px;
+}
+
+.toggle-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 13px;
+    transition: transform 0.3s ease;
+}
+
+.toggle-circle {
+    position: absolute;
+    top: 2px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    /* background-color: #fff; */
+    background-color: red;
+    transition: transform 0.3s ease;
+}
+
+.toggle-circle.open {
+    transform: translateX(24px);
+    background-color: green;
+}
+/* .toggle-circle.close {
+  transform: translateX(-24px);
+} */
+
+.toggle-button.active .toggle-background {
+    transform: translateX(24px);
+   
+}
+
+  

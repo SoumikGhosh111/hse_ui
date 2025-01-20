@@ -1,0 +1,160 @@
+.fetch-supervisors-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .fetch-supervisors-user-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .fetch-supervisors-user-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fetch-supervisors-user-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .fetch-supervisors-user-item.selected {
+    background-color: #e0e0e0;
+  }
+  
+  .fetch-supervisors-details-container {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    animation: expand 0.3s ease-out;
+  }
+  
+  .fetch-supervisors-details {
+    padding: 10px;
+  }
+  
+  .fetch-supervisors-pie-chart-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  /* .fetch-supervisors-pie-chart {
+    width: 400px;
+    height: 400px;
+  } */
+  
+  .fetch-supervisors-header,
+  .fetch-supervisors-details-header,
+  .fetch-supervisors-pie-chart-header {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .date-filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Date input fields */
+  .date-input {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 150px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Date range label */
+  .date-filter-container span {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* On focus, highlight the date inputs */
+  .date-input:focus {
+    border-color: #2196f3;
+    outline: none;
+  }
+  
+  @keyframes expand {
+    0% {
+      max-height: 0;
+      opacity: 0;
+    }
+    100% {
+      max-height: 1000px;
+      opacity: 1;
+    }
+  }
+
+  .backdrop-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    color: black;
+    min-width: 700px;
+    height: fit-content; 
+    max-height: 700px;
+    text-align: center;
+    overflow-y: scroll;
+
+   
+    /* border: 1px solid red; */
+  }
+  
+  .backdrop-content h3 {
+    margin-bottom: 20px;
+  }
+    .pie-chart-wrapper{ 
+      width: 100%;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  .pie-chart {
+    width: 90%;
+    height: 90%;
+    /* Adjust based on your preference */
+  }
+  .supervisor-task-wrapper{ 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .typography-title-div{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .task-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .task-status-color{ 
+    width: 15px;
+    height: 15px;
+    border: 1px solid black;
+
+  }
+  
+  
