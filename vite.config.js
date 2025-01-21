@@ -7,4 +7,10 @@ export default defineConfig({
   build: {
     outDir: 'dist', // or another path if necessary
   },
+  base: './',  // Ensures proper asset linking
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 })
