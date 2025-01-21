@@ -28,7 +28,7 @@ function Login() {
         const result = await response.json(); 
         console.log(result)
         localStorage.setItem('token', result.token);
-        navigate('/admin/dashboard');
+        navigate('/dashboard');
        
     }catch(e){ 
         console.log(e.message); 

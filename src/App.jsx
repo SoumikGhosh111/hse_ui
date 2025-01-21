@@ -15,7 +15,7 @@ function App() {
         <UserProvider>
           <Routes>
             <Route path='/' element={<LoginPage />} />
-            <Route path='/admin/dashboard' element={<PrivateRoutes><DashboardPage /></PrivateRoutes>} />
+            <Route path='/dashboard' element={<PrivateRoutes><DashboardPage /></PrivateRoutes>} />
           </Routes>
         </UserProvider>
       </Router>
