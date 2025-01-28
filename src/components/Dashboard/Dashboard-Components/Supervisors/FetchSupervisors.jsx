@@ -65,7 +65,7 @@ const FetchSupervisors = () => {
       });
 
       const result = await response.json();
-      console.log(result.data);
+      // console.log(result.data);
 
       setUser(result.data);
 
@@ -76,14 +76,14 @@ const FetchSupervisors = () => {
   }
 
   // Function to handle user click
-  const handleUserClick = async (user) => {
+  const handleUserClick = async (user, startdate, enddate) => {
     setSelectedUser(selectedUser?._id === user?._id ? null : user);
-    console.log(user);
+    // console.log(user, "this is user");
 
 
     try {
       // If startDate and endDate are provided, include them in the query params, else pass empty strings
-      const response = await fetch(`${baseUrl}/api/tasks/get-task-status-supervisor?supervisorId=${user._id}&startDate=${startDate || ''}&endDate=${endDate || ''}`, {
+      const response = await fetch(`${baseUrl}/api/tasks/get-task-status-supervisor?supervisorId=${user._id}`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -92,10 +92,10 @@ const FetchSupervisors = () => {
 
 
       const result = await response.json();
-      console.log(result.data);
+      // console.log(result.data, "after startdate and end date is selected");
       setChartData(result.data);
 
-      await getTaskById(user._id);
+      getTaskById(user._id);
 
     } catch (e) {
       console.log(e);
@@ -106,7 +106,7 @@ const FetchSupervisors = () => {
   const getPieChartData = () => {
     if (!selectedUser) return {};
     if (!chartData) { // Check if chartData is null or undefined
-      console.log(chartData)
+      // console.log(chartData)
       return {
         labels: ["Pending", "Due Soon", "Overdue", "Completed"],
         datasets: [
@@ -140,16 +140,37 @@ const FetchSupervisors = () => {
     try {
       const response = await fetch(`${baseUrl}/api/tasks/get-task-by-id?supervisorId=${supervisorId}`,);
       const result = await response.json();
-      console.log(result.data);
+      // console.log(result.data);
       setUserTask(result.data);
     } catch (e) {
       console.log(e.message);
     }
   }
 
-  useEffect(() => {
-    getPieChartData();
-  }, [startDate, endDate]); 
+
+
+  const handleDateApply = async(id, startdate, enddate ) => { 
+   
+
+    try {
+      // If startDate and endDate are provided, include them in the query params, else pass empty strings
+      const response = await fetch(`${baseUrl}/api/tasks/get-task-status-supervisor?supervisorId=${id}&startDate=${startdate || ''}&endDate=${enddate || ''}`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+
+      const result = await response.json();
+      console.log(result.data, "after startdate and end date is selected");
+      setChartData(result.data);
+
+
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
 
   const statusBackgroundColor = (status) => {
@@ -175,7 +196,7 @@ const FetchSupervisors = () => {
           <li
             key={user._id}
             className={`fetch-supervisors-user-item ${selectedUser?._id === user._id ? 'selected' : ''}`}
-            onClick={() => { handleUserClick(user); handleOpen() }}
+            onClick={() => { handleUserClick(user, '', ''); handleOpen() }}
           >
 
             {user.name}
@@ -220,6 +241,8 @@ const FetchSupervisors = () => {
                         onChange={(e) => setEndDate(e.target.value)}
                         className="date-input"
                       />
+
+                      <button onClick={() => handleDateApply(selectedUser._id, startDate, endDate)}>Apply Date</button>
                     </div>
                   </div>
                 </div>
