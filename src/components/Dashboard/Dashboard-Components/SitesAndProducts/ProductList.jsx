@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { baseUrl } from '../../../../utils/baseUrl';
 import AddItemForm from './AddItemForm';
 
+
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -12,10 +13,13 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const ProductList = ({ site }) => {
+const ProductList = ({ site, onFormSubmit }) => {
   const [products, setProducts] = useState(null);
   const [selectedProductId, setSelectedProductId] = useState(null);
   const [openForm, setOpenForm] = useState(false);
+  const[openPartsForm, setOpenPartsForm] = useState(false);
+  const [expandedProduct, setExpandedProduct] = useState(null);
+  const [expandedItem, setExpandedItem] = useState(null);
 
   useEffect(() => {
     fetchProducts(site);
@@ -31,10 +35,19 @@ const ProductList = ({ site }) => {
       });
 
       const result = await response.json();
+      console.log(result);
       setProducts(result.data);
     } catch (e) {
       console.log(e.message);
     }
+  };
+
+  const toggleProductDetails = (productId) => {
+    setExpandedProduct(expandedProduct === productId ? null : productId);
+  };
+
+  const toggleItemDetails = (itemId) => {
+    setExpandedItem(expandedItem === itemId ? null : itemId);
   };
 
   const handleProductClick = (productId) => {
@@ -47,79 +60,123 @@ const ProductList = ({ site }) => {
     setOpenForm(false);
   };
 
+  const handleItemClick = (itemId) => {
+    setSelectedProductId(itemId);
+    setOpenPartsForm(true);
+  }; 
+
+  const handleItemFormSubmit = (response) =>{ 
+    
+    setOpenForm(response);
+    onFormSubmit(response); 
+  }
+
   return (
     <div className="products-container">
       <h3 className="section-header">Products in {site.site_name}</h3>
-      <ul className="product-list">
-        {products?.map((product) => (
+      <table className="product-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Models</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products?.map((product) => (
+            <React.Fragment key={product._id}>
+              <tr>
+                <td>{product.equip_name}</td>
+                <td>{product.items.length}</td>
 
-          <Accordion>
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls="panel1-content"
-              id="panel1-header"
-            >
-              <Typography component="div">{product.equip_name}   <button onClick={() => handleProductClick(product.product_id)}>Add Items</button> </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
-                <h2>Items</h2>
-                <ul className="item-list">
-                  {product.items.map((item) => (
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1-content"
-                        id="panel1-header"
-                      >
-                        <Typography component="div">{item.name} ({item.serial_number})</Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Typography>
-                          <h3>Parts</h3>
-                          <ul className="parts-list">
-                            {item.parts.map((part) => (
-                              <li key={part._id} className="part">
-                                {part.part_name} - {part.part_number}
-                              </li>
-                            ))}
-                          </ul>
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                  ))}
-                </ul>
+                <td>
+                  <button className='button expand-product-button' onClick={() => toggleProductDetails(product.product_id)}>
+                    {expandedProduct === product.product_id ? 'Shrink' : 'Expand'}
+                  </button>
+                  <button className='button' onClick={() => handleProductClick(product.product_id)}>Add Models To Site</button>
+                </td>
+              </tr>
+              {expandedProduct === product.product_id && (
+                <tr>
+                  <td colSpan="2">
+                    {/* <h3>Items</h3> */}
+                    <table className="item-table">
+                      <thead>
+                        <tr>
+                          <th>Model Name</th>
+                          <th>Serial Number</th>
+                          <th>Parts</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {product.items.map((item) => (
+                          <React.Fragment key={item._id}>
+                            <tr>
+                              <td>{item.name}</td>
+                              <td>{item.serial_number}</td>
+                              <td>{item.parts.length}</td>
+                              <td>
+                                <button className='button expand-model-button' onClick={() => toggleItemDetails(item._id)}>
+                                  {expandedItem === item._id ? 'Shrink Parts' : 'Expand Parts'}
+                                </button>
 
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
-        ))}
-      </ul>
-      <Backdrop
-        sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
-        open={openForm}
+                                <button className='button expand-model-button' >
+                                  Add Parts To Model
+                                </button>
+                              </td>
 
-      >
+                            </tr>
+                            {expandedItem === item._id && (
+                              <tr>
+                                <td colSpan="3">
+                                  {/* <h4>Parts</h4> */}
+                                  <table className="parts-table">
+                                    <thead>
+                                      <tr>
+                                        <th>Part Name</th>
+                                        <th>Part Number</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      {item.parts.map((part) => (
+                                        <tr key={part._id}>
+                                          <td>{part.part_name}</td>
+                                          <td>{part.part_number}</td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </td>
+                              </tr>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              )}
+            </React.Fragment>
+          ))}
+        </tbody>
+      </table>
 
+      <Backdrop sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })} open={openForm}>
         <div className="backdrop-content-product-list">
           {selectedProductId ? (
-            
-            <div
-              className="add-item-form-container"
-            >
-               <button onClick={closeForm} className="close-form-btn">
+            <div className="add-item-form-container">
+              <button onClick={closeForm} className="close-form-btn">
                 Close
               </button>
               <h4>Add New Item to {site.site_name}</h4>
-              <AddItemForm siteId={site._id} productId={selectedProductId} />
+              <AddItemForm siteId={site._id} productId={selectedProductId} onSubmit={handleItemFormSubmit}/>
             </div>
           ) : (
             <CircularProgress />
           )}
         </div>
       </Backdrop>
-
-
     </div>
   )
 }

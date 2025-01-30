@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "../Supervisors/FetchSuperVisors.css"; 
+import "../Supervisors/FetchSuperVisors.css";
 import './Inspectors.css';
 import { baseUrl } from '../../../../utils/baseUrl';
 import { Pie } from 'react-chartjs-2';
@@ -168,6 +168,29 @@ const FetchSupervisors = () => {
     }
   }
 
+  const handleDateApply = async(id, startdate, enddate ) => { 
+     
+  
+      try {
+        // If startDate and endDate are provided, include them in the query params, else pass empty strings
+        const response = await fetch(`${baseUrl}/api/tasks/get-task-status-inspector?userId=${id}&startDate=${startdate}&endDate=${enddate}`, {
+          method: "GET",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+  
+  
+        const result = await response.json();
+        console.log(result.data, "after startdate and end date is selected");
+        setChartData(result.data);
+  
+  
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
   return (
     <div className="fetch-supervisors-container">
       <h2 className="fetch-supervisors-header">User List</h2>
@@ -221,6 +244,8 @@ const FetchSupervisors = () => {
                         onChange={(e) => setEndDate(e.target.value)}
                         className="date-input"
                       />
+
+                      <button onClick={() => handleDateApply(selectedUser._id, startDate, endDate)}>Apply Date</button>
                     </div>
                   </div>
                 </div>
@@ -247,7 +272,7 @@ const FetchSupervisors = () => {
                           aria-controls="panel1-content"
                           id="panel1-header"
                         >
-                          <Typography component="div"><div className='typography-title-div'>{task.product}({task.part_number})<div className='task-status-color' style={{ backgroundColor: statusBackgroundColor(task.status) }}></div><p style={{textTransform: 'uppercase'}}><strong>{task.status}</strong></p></div></Typography>
+                          <Typography component="div"><div className='typography-title-div'>{task.product}({task.part_number})<div className='task-status-color' style={{ backgroundColor: statusBackgroundColor(task.status) }}></div><p style={{ textTransform: 'uppercase' }}><strong>{task.status}</strong></p></div></Typography>
                         </AccordionSummary>
                         <AccordionDetails>
                           <Typography>

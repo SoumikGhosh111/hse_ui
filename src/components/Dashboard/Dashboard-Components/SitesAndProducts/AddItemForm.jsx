@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { baseUrl } from '../../../../utils/baseUrl';
 
-const AddItemForm = ({ siteId, productId }) => {
+const AddItemForm = ({ siteId, productId, onSubmit }) => {
   const [itemName, setItemName] = useState('');
   const [serialNumber, setSerialNumber] = useState('');
   const [message, setMessage] = useState('');
@@ -31,6 +31,10 @@ const AddItemForm = ({ siteId, productId }) => {
         setMessage(`Success: ${data.message}`);
         setItemName('');
         setSerialNumber('');
+        setTimeout(() => {
+          setMessage('');
+          onSubmit(false);
+        }, 2000);
       } else {
         setMessage(`Error: ${data.message}`);
       }

@@ -27,11 +27,16 @@ function Sidebar({ onSideBarItemClicked }) {
     }
     const [storeStatus, setStoreStatus] = useState('close');
 
+    const handleLogout = () => { 
+        localStorage.removeItem('token');
+        window.location.reload(); 
+    }
+
     return (
         <aside id="sidebar" className=''>
             <div className='sidebar-title'>
                 <div className='sidebar-brand'>
-                    HOLE GROUP
+                    HSE GROUP
                 </div>
                 <span className='icon close_icon'>X</span>
             </div>
@@ -78,7 +83,7 @@ function Sidebar({ onSideBarItemClicked }) {
                 
             </ul>
 
-            <button>Logout</button>
+            <button onClick={() => handleLogout()}>Logout</button>
         </aside>
     )
 
