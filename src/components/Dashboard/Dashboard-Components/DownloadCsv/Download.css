@@ -1,0 +1,101 @@
+.download-task-container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .download-task-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .download-task-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .download-task-controls input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .fetch-tasks-btn,
+  .download-tasks-btn, 
+  .reset-tasks-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .fetch-tasks-btn {
+    background-color: #007bff;
+    color: white;
+    transition:all 0.4s ease;
+  }
+  .fetch-tasks-btn:hover {
+    background-color: #0800ff;
+    color: white;
+  }
+  
+  .download-tasks-btn {
+    background-color: #28a745;
+    color: white;
+    transition:all 0.4s ease;
+  }
+  .download-tasks-btn:hover {
+    background-color: #1d7832;
+    color: white;
+  }
+
+  .reset-tasks-btn{ 
+    background-color: #e10000;
+    color: white;
+    transition:all 0.4s ease;
+  }
+  .reset-tasks-btn:hover{ 
+    background-color: #ad0101;
+    color: white;
+  }
+  
+  .download-task-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+  }
+  
+  .download-task-table th,
+  .download-task-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .download-task-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .download-task-table tbody tr {
+    transition: all 0.3s ease;
+  }
+  .download-task-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .download-task-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  

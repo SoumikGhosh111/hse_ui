@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Sidebar.css"
 
+
 // icons 
 import { RiAccountCircleLine } from "react-icons/ri";
 
@@ -15,6 +16,8 @@ import { FaWarehouse } from "react-icons/fa";
 import { HiMiniQueueList } from "react-icons/hi2";
 
 import { HiOutlineQueueList } from "react-icons/hi2";
+
+import { GoTasklist } from "react-icons/go";
 
 
 
@@ -37,6 +40,7 @@ function Sidebar({ onSideBarItemClicked }) {
             <div className='sidebar-title'>
                 <div className='sidebar-brand'>
                     HSE GROUP
+                    <img src=''/>
                 </div>
                 <span className='icon close_icon'>X</span>
             </div>
@@ -71,13 +75,19 @@ function Sidebar({ onSideBarItemClicked }) {
 
                 <li className={activeClass === 6 ? 'active-sidebar' : 'sidebar-list-item'} onClick={() => handleIconCLick(6)}>
                     <a style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                        <HiMiniQueueList size={25}/> Pending Safety Critical Items
+                        <HiMiniQueueList size={25}/> Pending Models
                     </a>
                 </li>
 
                 <li className={activeClass === 7 ? 'active-sidebar' : 'sidebar-list-item'} onClick={() => handleIconCLick(7)}>
                     <a style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                      <HiOutlineQueueList size={25}/>  Pending Safety Critical Sub-Items
+                      <HiOutlineQueueList size={25}/>  Pending Parts
+                    </a>
+                </li>
+
+                <li className={activeClass === 8 ? 'active-sidebar' : 'sidebar-list-item'} onClick={() => handleIconCLick(8)}>
+                    <a style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                      <GoTasklist size={25}/>  All Tasks
                     </a>
                 </li>
                 

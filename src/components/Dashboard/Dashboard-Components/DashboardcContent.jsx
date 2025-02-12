@@ -15,6 +15,7 @@ import TempItems from './TemporaryItems/TempItems';
 
 import TempParts from './TemporaryParts/TempParts';
 
+import DownloadCsv from './DownloadCsv/DownloadCsv';
 function DashboardcContent({itemToRender}) {
     return (
         <div className='main-container'>
@@ -43,6 +44,10 @@ function DashboardcContent({itemToRender}) {
 
                     <div>
                         {itemToRender === 7 && <TempParts />}
+                    </div>
+
+                    <div>
+                        {itemToRender === 8 && <DownloadCsv />}
                     </div>
                 </>
 

@@ -44,7 +44,7 @@ const TempParts = () => {
   }
   return (
     <div className="temp-items-container">
-      <h1>Temporary Items</h1>
+      <h1>Pending Safety Critical Sub-Items</h1>
       {tempItems.length > 0 ? (
         <table className="temp-items-table">
           <thead>
