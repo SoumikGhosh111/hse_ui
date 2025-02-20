@@ -16,6 +16,10 @@ import TempItems from './TemporaryItems/TempItems';
 import TempParts from './TemporaryParts/TempParts';
 
 import DownloadCsv from './DownloadCsv/DownloadCsv';
+
+import TempSSE from './TempSSE/TempSSE';
+
+import TempRecieve from './TempSSE/TempRecieve';
 function DashboardcContent({itemToRender}) {
     return (
         <div className='main-container'>
@@ -48,6 +52,13 @@ function DashboardcContent({itemToRender}) {
 
                     <div>
                         {itemToRender === 8 && <DownloadCsv />}
+                    </div>
+
+                    <div>
+                        {itemToRender === 9 && <TempSSE />}
+                    </div>
+                    <div>
+                        {itemToRender === 10 && <TempRecieve />}
                     </div>
                 </>
 

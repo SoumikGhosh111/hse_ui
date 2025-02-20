@@ -46,6 +46,16 @@ function Sidebar({ onSideBarItemClicked }) {
             </div>
 
             <ul className='sidebar-list'>
+                <li className={activeClass === 9 ? 'active-sidebar' : 'sidebar-list-item'} onClick={() => handleIconCLick(9)}>
+                    <a style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                      <GoTasklist size={25}/>  Temp Sender
+                    </a>
+                </li>
+                <li className={activeClass === 10 ? 'active-sidebar' : 'sidebar-list-item'} onClick={() => handleIconCLick(10)}>
+                    <a style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                      <GoTasklist size={25}/>  Temp Reciever
+                    </a>
+                </li>
                 <li className={activeClass === 1 ? 'active-sidebar' : 'sidebar-list-item'} onClick={() => handleIconCLick(1)}>
                     <a style={{display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
                     <RiAccountCircleLine   size={25}/> Create Accounts
