@@ -5,7 +5,7 @@ function TempRecieve() {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        const eventSource = new EventSource("http://localhost:8000/api/sse/message");
+        const eventSource = new EventSource(`${baseUrl}/api/sse/message`);
 
         eventSource.onmessage = (event) => {
             const data = JSON.parse(event.data);

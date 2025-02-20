@@ -5,7 +5,7 @@ function TempSSE(){
     const [message, setMessage] = useState("");
 
     const sendMessage = async () => {
-        await fetch("http://localhost:8000/api/sse/send", {
+        await fetch(`${baseUrl}/api/sse/send`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
