@@ -103,7 +103,7 @@ function Sidebar({ onSideBarItemClicked }) {
                 
             </ul>
 
-            <button onClick={() => handleLogout()}>Logout</button>
+            <button onClick={() => handleLogout()} className='back-to-home-side-bar'>Logout</button>
         </aside>
     )
 

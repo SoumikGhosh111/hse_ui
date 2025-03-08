@@ -112,110 +112,19 @@
     border: none;
     padding: 1rem 1rem;
     /* box-sizing: border-box; */
-    font-size: 14px;
+    font-size: 18px;
     border-radius: 10px;
     cursor: pointer;
+    transition: all 0.4s ease;
+  }
+
+  .back-to-home-side-bar:hover{ 
+    background: #cbcbcb;
   }
 
 
 
 
-  .store-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    flex-direction: column;
-    position: absolute;
-    bottom: 15%;
-    left: 48%;
-    transform: translate(-50%);
-    color: white;
-  }
   
-  .store-title {
-    font-size: 32px;
-    font-weight: bold;
-    margin-right: 20px;
-    margin-bottom: 10px; 
-  }
-  
-  .status-buttons {
-    display: flex;
-    gap: 1rem;
-  }
-  
-  .status-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s ease;
-  }
-  
-  .status-button.active {
-    background-color: #171717;
-    color: white;
-  }
-  
-  .store-status {
-    font-size: 24px;
-    margin-left: 20px;
-  }
-
-
-
-  .toggle-switch {
-    display: inline-block;
-}
-
-.toggle-button {
-    position: relative;
-    width: 50px;
-    height: 26px;
-    border-radius: 13px;
-    background-color: #ccc;
-    cursor: pointer;
-    outline: none;
-    border: none;
-    padding: 2px;
-}
-
-.toggle-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 13px;
-    transition: transform 0.3s ease;
-}
-
-.toggle-circle {
-    position: absolute;
-    top: 2px;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    /* background-color: #fff; */
-    background-color: red;
-    transition: transform 0.3s ease;
-}
-
-.toggle-circle.open {
-    transform: translateX(24px);
-    background-color: green;
-}
-/* .toggle-circle.close {
-  transform: translateX(-24px);
-} */
-
-.toggle-button.active .toggle-background {
-    transform: translateX(24px);
-   
-}
 
   
