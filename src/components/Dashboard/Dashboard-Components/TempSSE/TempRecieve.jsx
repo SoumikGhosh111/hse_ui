@@ -3,9 +3,10 @@ import { baseUrl } from "../../../../utils/baseUrl";
 
 function TempRecieve() {
     const [messages, setMessages] = useState([]);
+    const email = "inspector-03@example.com"; 
 
     useEffect(() => {
-        const eventSource = new EventSource(`${baseUrl}/api/sse/message`);
+        const eventSource = new EventSource(`${baseUrl}/api/sse/message?email=${email}`);
 
         eventSource.onmessage = (event) => {
             const data = JSON.parse(event.data);
