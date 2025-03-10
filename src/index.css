@@ -10,3 +10,17 @@ body{
   height: 100vh;
   font-family: "Roboto", serif;
 }
+
+button{ 
+    border: none;
+    padding: 0.5rem 1rem;
+    /* box-sizing: border-box; */
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+button:hover{ 
+  background: #cbcbcb;
+}
